@@ -18,7 +18,7 @@ from decouple import config
 # pymysql.install_as_MySQLdb()
 
 import urllib.parse as up
-import psycopg2
+import psycopg2-binary
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
