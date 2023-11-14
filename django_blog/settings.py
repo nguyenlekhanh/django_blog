@@ -20,15 +20,6 @@ from decouple import config
 import urllib.parse as up
 import psycopg2
 
-# up.uses_netloc.append("postgres")
-
-# #url = up.urlparse(os.environ["DATABASE_URL"])
-# conn = psycopg2.connect(database="",
-# user="gmnzhvpx",
-# password="7Xri6awGsj0L2Sc1yPExjBCWUAzyFCAh",
-# host="chunee.db.elephantsql.com",
-# port="5432"
-# )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
