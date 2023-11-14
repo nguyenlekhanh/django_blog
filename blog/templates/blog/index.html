@@ -1,5 +1,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content%}
-<h1>Index</h1>
+<div>
+    {% for c in categories%}
+        <h5>{{c.name}}</h5>
+    {% endfor %}
+</div>
 {% endblock content %}

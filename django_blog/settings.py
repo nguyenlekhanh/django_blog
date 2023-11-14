@@ -18,7 +18,6 @@ from decouple import config
 # pymysql.install_as_MySQLdb()
 
 import urllib.parse as up
-import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +33,7 @@ SECRET_KEY = 'django-insecure-zm-xtealdza+e7tm7o2)scrt=@ob+he4+zg#y@d7p)9f*--#*9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1:8000', '127.0.0.1']
 
 
 # Application definition
@@ -103,7 +102,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
+#DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
