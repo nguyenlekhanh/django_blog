@@ -39,6 +39,11 @@
     z-index: 3;
 }
 
+.blog-item-utils {
+    margin-bottom: 85px;
+    margin-top: 50px;
+}
+
 .blog-item-utils .read-more {
 
     float: right;
