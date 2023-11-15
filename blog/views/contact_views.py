@@ -11,3 +11,6 @@ class ContactFormView(FormView):
     def get_success_url(self):
         return reverse('contact')
     
+    def post():
+        
+    
