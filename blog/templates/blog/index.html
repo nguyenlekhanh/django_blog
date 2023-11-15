@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content%}
-<div>
+<!-- <div>
     {% for c in post_list%}
         <h5>{{c.title}}</h5>
         <p>{{c.content|truncatewords_html:50|safe}}</p>
@@ -22,5 +23,23 @@
         {% endif %}
     </span>
 </div>
-{% endif %}
+{% endif %} -->
+
+<div class="blog-item">
+    <p class="blog-item-cate text-center">Fashion</p>
+    <p >
+        
+    </p>
+    <h2 class="blog-item-title text-center pb-3">Skateboard occupy</h2>
+    <div class="text-center">
+        <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
+    </div>
+    <div class="blog-item-content pt-3">
+    Wes Anderson banjo you probably haven’t heard of them cred, XOXO deep v kale chips Kickstarter viral. Swag meggings jean shorts chillwave seitan disrupt. Meditation flexitarian authentic organic, you probably haven’t heard of them taxidermy fap pop-up. Trust fund Tumblr Schlitz Banksy Austin squid.
+    </div>
+    <div class="blog-item-utils">
+        <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/28/skateboard-occupy/" class="read-more">Continue Reading</a>
+    </div>
+</div>
+
 {% endblock content %}

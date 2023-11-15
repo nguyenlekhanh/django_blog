@@ -1,0 +1,45 @@
+.right-sidebar {
+    -ms-flex: 0 0 300px;
+    flex: 0 0 300px;
+    border-left: 1px solid #cccc;
+}
+
+.body-content {
+    padding: 2rem 9%;
+    padding-bottom: 0px;
+}
+
+.blog-item {
+    clear: both;
+}
+
+.blog-item-utils:before {
+    display: table;
+    content: '';
+    position: relative;
+    top: 21px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #ebebeb;
+    z-index: 2;
+}
+
+.read-more {
+    position: relative;
+    top: -4px;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #fff;
+    color: #b49543;
+    border: solid 2px #ebebeb;
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    z-index: 3;
+}
+
+.blog-item-utils .read-more {
+
+    float: right;
+}

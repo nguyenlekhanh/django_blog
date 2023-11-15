@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'blog/styles/sidebar.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'blog/styles/blog_content.css' %}" />
 </head>
 <style>
     .header {
@@ -132,9 +134,9 @@
                             <div>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#">Blog active</a>
+                                        <a class="nav-link active" href="#">Home</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="nav-link" href="#">Tech</a>
                                     </li>
                                     <li class="nav-item">
@@ -142,13 +144,13 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">About</a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Contact</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="nav-link" href="#">Login</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -157,9 +159,9 @@
                 <div class="d-none d-md-block">
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Blog active</a>
+                            <a class="nav-link active" href="#">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Tech</a>
                         </li>
                         <li class="nav-item">
@@ -167,22 +169,109 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Login</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </div>
     </header>
 
-    {% block content %}
+    <!-- content -->
+    <div class="body-content">
+        <div class="row">
+            <div class="col pr-4">
+                {% block content %}
     
-    {% endblock content %}
+                {% endblock content %}
+                <div class="clearfix mb-5"></div>
+            </div>
+            <div class="col right-sidebar d-none d-lg-block">
+                <!-- sidebar -->
+                <aside class="sidebar-aside">
+                    <div class="mb-4">
+                        <div class="sidebar-box">
+                            <p class="sidebar-content">About Me</p>
+                        </div>
+                        <div class="text-center">
+                            Wes Anderson banjo you probably haven’t deep v kale chips Kickstarter viral. Swag meggings disrupt. Meditation flexitarian authentic organic, you probably haven’t heard of them taxidermy.
+                        </div>
+                    </div>
+            
+                    <div class="sidebar-aside-block my-4">
+                        <div class="sidebar-box">
+                            <p class="sidebar-content">Order Post</p>
+                        </div>
+                        <div class="sidebard-order-post">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <article class="d-flex pb-2">
+                                        <div class="entry-featured">
+                                            <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">
+                                                <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="sidebard-order-post-title"><a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">Sartorial street art Sartorial street art Sartorial street art</a></h4>
+                                        </div>
+                                    </article>
+                                    <article class="d-flex py-3 border-top">
+                                        <div class="entry-featured">
+                                            <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">
+                                                <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="sidebard-order-post-title"><a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">Sartorial street art Sartorial street art Sartorial street art</a></h4>
+                                        </div>
+                                    </article>
+                                    <article class="d-flex py-3 border-top">
+                                        <div class="entry-featured">
+                                            <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">
+                                                <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 class="sidebard-order-post-title"><a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">Sartorial street art Sartorial street art Sartorial street art</a></h4>
+                                        </div>
+                                    </article>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <div class="mb-4">
+                        <div class="sidebar-box">
+                            <p class="sidebar-content">Categories</p>
+                        </div>
+                        <div class="text-center">
+                            <ul class="list-unstyled">
+                                <li class="sidebar-categories-item pb-2 border-bottom">
+                                    <div class="d-flex justify-content-between">
+                                        <div>Fashion</div>
+                                        <div>(4)</div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-categories-item pb-2 border-bottom pt-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>Fashion</div>
+                                        <div>(4)</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>        
+    </div>
+
+    
 
     <footer class="footer">
         <div class="footer-text">

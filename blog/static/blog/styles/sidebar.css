@@ -1,0 +1,43 @@
+.sidebar-aside {
+    padding-left: 10px;
+}
+.sidebar-box {
+
+}
+
+.sidebar-aside-block {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.sidebar-content {
+    font-family: Lato,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background: #161616;
+    color: #fff;
+    font-size: 11px;
+    padding: 13px 0;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.sidebard-order-post-title {
+    /*white-space: nowrap;
+    width: 213px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    */
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal; /* Set this to 'nowrap' if you want to truncate on one line */
+    text-overflow: ellipsis;
+}
+
+.sidebard-order-post-title a {
+    text-decoration: none;
+}
