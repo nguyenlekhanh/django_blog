@@ -1,7 +1,8 @@
 from django.urls import path, include
-from .views import Index
+from .views.blog_views import Index, DetailBlogView
 
 urlpatterns = [
-    path('', Index.as_view(), name='index'),
     path('tinymce/', include('tinymce.urls')),
+    path('', Index.as_view(), name='index'),
+    path('<str:slug>/', DetailBlogView.as_view(), name='blog_detail'),
 ]

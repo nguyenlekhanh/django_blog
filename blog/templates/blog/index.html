@@ -28,17 +28,21 @@
 {% for p in post_list%}
 <div class="blog-item">
     <p class="blog-item-cate text-center">{{p.category.name}}</p>
-    <h2 class="blog-item-title text-center pb-3">{{p.title}}</h2>
+    <a href="{% url 'blog_detail' p.slug%}" class="blog-item-title">
+        <h2 class="blog-item-title text-center pb-3">{{p.title}}</h2>
+    </a>
     {% if p.post_img %}
     <div class="text-center">
-        <img src="{% static 'images/' %}{{ p.post_img }}" alt="Logo" />
+        <a href="{% url 'blog_detail' p.slug%}">
+            <img src="{% static 'images/' %}{{ p.post_img }}" alt="Logo" />
+        </a>
     </div>
     {% endif %}
     <div class="blog-item-content pt-4">
         {{p.description|truncatewords_html:100|safe}}
     </div>
     <div class="blog-item-utils">
-        <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/28/skateboard-occupy/" class="read-more">Continue Reading</a>
+        <a href="{% url 'blog_detail' p.slug%}" class="read-more">Continue Reading</a>
     </div>
 </div>
 {% endfor %}

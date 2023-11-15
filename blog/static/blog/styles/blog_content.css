@@ -13,6 +13,11 @@
     clear: both;
 }
 
+.blog-item-title {
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+}
+
 .blog-item-utils:before {
     display: table;
     content: '';

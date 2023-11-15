@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="blog-item">
+    <p class="blog-item-cate text-center">{{object.category.name}}</p>
+    <h2 class="blog-item-title text-center pb-3">{{object.title}}</h2>
+    {% if object.post_img %}
+    <div class="text-center">
+        <img src="{% static 'images/' %}{{ object.post_img }}" alt="Logo" />
+    </div>
+    {% endif %}
+    <div class="blog-item-content pt-4">
+        {{object.content|safe}}
+    </div>
+</div>
+{% endblock content %}
