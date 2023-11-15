@@ -18,12 +18,26 @@ class ContactFormView(FormView):
     def form_valid(self, form):
         form.save()
         #self.extra_context = {'thank_you_message': 'Thank you for your submission!'} 
+        # Set the "thank you" message in the context
+
+        self.request.session['form_submitted'] = True
+
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        # If the form is invalid, you can handle it here
+        # You can either display an error message or redirect the user back to the form
+
+        # For example, you can render the form again with error messages
+        return self.render_to_response(self.get_context_data(form=form))
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Add a "thank you" message to the context
-        context['thank_you_message'] = 'Thank you for your submission!'
+
+        if self.request.session.pop('form_submitted', False):
+            context['thank_you_message'] = 'Thank you for your submission!'
+
         return context
 # class ContactFormView(CreateView):
 #     model = Contact
