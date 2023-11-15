@@ -3,6 +3,8 @@ import uuid
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from django.urls import reverse
+from .validators import validate_domainonly_email
+
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now=True)
@@ -10,7 +12,6 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
-
 
 
 class Category(BaseModel):
@@ -42,3 +43,12 @@ class Post(BaseModel):
 
     def __str__(self):
         return self.title
+    
+
+class Contact(BaseModel):
+    name = models.CharField(max_length=200, null=True)
+    email = models.EmailField(validators=[validate_domainonly_email])
+    content = models.TextField(null=False)
+
+    def __str__(self):
+        return self.name

@@ -7,6 +7,13 @@
 <div class="blog-item">
     <form method="POST" action="">
         {% csrf_token %}
+
+        {% if thank_you_message %}
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            {{ thank_you_message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
         {{ form|crispy }}
         <input class="btn btn-primary" type="submit" value="Submit" />
     </form>
