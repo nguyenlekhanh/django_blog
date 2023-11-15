@@ -1,6 +1,5 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -14,7 +13,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {% endif %}
-        {{ form|crispy }}
+        {{ form }}
         <input class="btn btn-primary" type="submit" value="Submit" />
     </form>
 </div>

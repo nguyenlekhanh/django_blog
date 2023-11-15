@@ -11,9 +11,9 @@ class ContactForm(forms.ModelForm):
         fields = ['name', 'email', 'content']
 
         widgets = {
-            'name': forms.TextInput(),
-            'email': forms.EmailInput(),
-            'content': forms.Textarea()
+            'name': forms.TextInput(attrs={'class': 'form-control mb-3'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control mb-3'}),
+            'content': forms.Textarea(attrs={'class': 'form-control mb-3'})
         }
 
 
