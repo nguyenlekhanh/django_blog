@@ -16,7 +16,8 @@ class ContactForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control mb-3'})
         }
 
-
+class UploadFileForm(forms.Form):
+    file = forms.FileField()
 
 # class ContactForm(forms.Form):
 #     name = forms.CharField()

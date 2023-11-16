@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from remove_background.views import upload_file
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('remove-background', upload_file, name='remove-background'),
 ]
 
 #set media_url get image from media_root
