@@ -40,7 +40,7 @@ class PostByCategoryView(ListView):
                 SELECT blog_post.*, blog_category.name AS category_name, blog_category.slug AS category_slug
                 FROM blog_post
                 LEFT JOIN blog_category ON blog_post.category_id = blog_category.id
-                WHERE blog_post.category_id = 1
+                WHERE blog_post.category_id = {category_id}
                 ORDER BY blog_post.updated_at DESC
             ''')
             columns = [col[0] for col in cursor.description]

@@ -37,7 +37,7 @@ class Category(BaseModel):
 class Post(BaseModel):
     title = models.CharField(max_length=300, null=True)
     slug = models.CharField(max_length=255, null=False)
-    post_img = models.ImageField(null=False, default="")
+    post_img = models.ImageField(default="", blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post', null=True)
     description = models.TextField(null=True)
     content = HTMLField()
