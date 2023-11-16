@@ -46,7 +46,7 @@ class PostByCategoryView(ListView):
             columns = [col[0] for col in cursor.description]
             queryset = [dict(zip(columns, row)) for row in cursor.fetchall()]
 
-        p = Paginator(queryset, 4)
+        p = Paginator(queryset, 10)
 
         page_num = self.request.GET.get('page', 1)
 

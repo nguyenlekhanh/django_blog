@@ -7,7 +7,7 @@ from django.db import connection
 
 class Index(ListView):
     model = Post
-    paginate_by = 2
+    paginate_by = 10
     context_object_name = 'post_list'
     #queryset = Post.objects.all().order_by('-updated_at')
     template_name = 'blog/index.html'
