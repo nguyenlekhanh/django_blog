@@ -23,7 +23,6 @@ from remove_background.views import upload_file
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('remove-background', upload_file, name='remove-background'),
 ]
 
 #set media_url get image from media_root
