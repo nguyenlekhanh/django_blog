@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from django.urls import reverse
 from .validators import validate_domainonly_email
-
+from django.template.defaultfilters import slugify
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now=True)
@@ -17,6 +17,7 @@ class BaseModel(models.Model):
 class Category(BaseModel):
     
     name = models.CharField(max_length=200, null=True)
+    slug = models.CharField(max_length=255, blank=True)
     order = models.IntegerField(default=0)
     parent = models.IntegerField(default=0)
 
@@ -30,7 +31,7 @@ class Category(BaseModel):
 
 class Post(BaseModel):
     title = models.CharField(max_length=300, null=True)
-    slug = models.CharField(unique=True, max_length=255, null=False)
+    slug = models.CharField(max_length=255, null=False)
     post_img = models.ImageField(null=False, default="")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post', null=True)
     description = models.TextField(null=True)
@@ -44,6 +45,10 @@ class Post(BaseModel):
     def __str__(self):
         return self.title
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
 class Contact(BaseModel):
     name = models.CharField(max_length=200, null=True)

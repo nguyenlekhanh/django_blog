@@ -1,29 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block content%}
-<!-- <div>
-    {% for c in post_list%}
-        <h5>{{c.title}}</h5>
-        <p>{{c.content|truncatewords_html:50|safe}}</p>
-        <p>{{c.updated_at}}</p>
-    {% endfor %}
-</div>
-{% if is_paginated %}
-<div class="pagination">
-    <span class="page-links">
-        {% if page_obj.has_previous %}
-            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-        <span class="page-current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-        {% if page_obj.has_next %}
-            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div>
-{% endif %} -->
+{% block content %}
 
 {% for p in post_list%}
 <div class="blog-item">
@@ -50,19 +28,20 @@
     </div>
 </div>
 {% endfor %}
-{% if is_paginated %}
+
+
 <div class="blog-item pagination">
     <span class="page-links">
-        {% if page_obj.has_previous %}
-            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% if post_list.has_previous %}
+            <a href="{{ request.path }}?page={{ post_list.previous_page_number }}">Previous</a>
         {% endif %}
         <span class="page-current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}.
         </span>
-        {% if page_obj.has_next %}
-            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+        {% if post_list.has_next %}
+            <a href="{{ request.path }}?page={{ post_list.next_page_number }}">Next</a>
         {% endif %}
     </span>
 </div>
-{% endif %}
+
 {% endblock content %}
