@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import UploadFileForm
-from rembg import remove
+from .rembg import remove
 import os
 from django.conf import settings
 from io import BytesIO
