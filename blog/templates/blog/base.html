@@ -136,6 +136,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" href="{% url 'index' %}">Home</a>
                                     </li>
+                                    {% for category in categories %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'category_slug' slug=category.slug %}">{{ category.name }}</a>
+                                        </li>
+                                    {% endfor %}
                                     <!-- <li class="nav-item">
                                         <a class="nav-link" href="#">Tech</a>
                                     </li>
@@ -161,6 +166,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="{% url 'index' %}">Home</a>
                         </li>
+                        {% for category in categories %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'category_slug' slug=category.slug %}">{{ category.name }}</a>
+                            </li>
+                        {% endfor %}
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Tech</a>
                         </li>
@@ -199,7 +209,7 @@
                             <p class="sidebar-content text-uppercase">About Me</p>
                         </div>
                         <div class="text-center">
-                            Wes Anderson banjo you probably haven’t deep v kale chips Kickstarter viral. Swag meggings disrupt. Meditation flexitarian authentic organic, you probably haven’t heard of them taxidermy.
+                            Software Engineer | Full Stack Web Developer | IT Specialist | Mobile App Developer | Networking
                         </div>
                     </div>
             
@@ -210,36 +220,40 @@
                         <div class="sidebard-order-post">
                             <ul class="list-unstyled">
                                 <li>
-                                    <article class="d-flex pb-2">
-                                        <div class="entry-featured">
-                                            <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">
-                                                <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <h4 class="sidebard-order-post-title"><a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">Sartorial street art Sartorial street art Sartorial street art</a></h4>
-                                        </div>
-                                    </article>
-                                    <article class="d-flex py-3 border-top">
-                                        <div class="entry-featured">
-                                            <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">
-                                                <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <h4 class="sidebard-order-post-title"><a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">Sartorial street art Sartorial street art Sartorial street art</a></h4>
-                                        </div>
-                                    </article>
-                                    <article class="d-flex py-3 border-top">
-                                        <div class="entry-featured">
-                                            <a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">
-                                                <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <h4 class="sidebard-order-post-title"><a href="https://www.cssigniter.com/demos/olsen-light/2021/08/23/sartorial-street-art/">Sartorial street art Sartorial street art Sartorial street art</a></h4>
-                                        </div>
-                                    </article>
+                                {% for p in new_posts %}
+                                    {% if forloop.first %}
+                                        <article class="d-flex pb-2">
+                                            <div class="entry-featured">
+                                                <a href="{% url 'blog_detail' p.slug%}">
+                                                    <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h4 class="sidebard-order-post-title">
+                                                    <a href="{% url 'blog_detail' p.slug%}">
+                                                        {{p.title}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </article>
+                                    {% else %}
+                                        <article class="d-flex py-3 border-top">
+                                            <div class="entry-featured">
+                                                <a href="{% url 'blog_detail' p.slug%}">
+                                                    <img src="{% static 'blog/images/Logo.png' %}" alt="Logo" />
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h4 class="sidebard-order-post-title">
+                                                    <a href="{% url 'blog_detail' p.slug%}">
+                                                        {{p.title}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </article>
+                                    {% endif %}
+                                    
+                                {% endfor %}
                                 </li>
                             </ul>
                         </div>
@@ -251,18 +265,32 @@
                         </div>
                         <div class="text-center">
                             <ul class="list-unstyled">
-                                <li class="sidebar-categories-item pb-2 border-bottom">
-                                    <div class="d-flex justify-content-between">
-                                        <div>Fashion</div>
-                                        <div>(4)</div>
-                                    </div>
-                                </li>
-                                <li class="sidebar-categories-item pb-2 border-bottom pt-2">
-                                    <div class="d-flex justify-content-between">
-                                        <div>Fashion</div>
-                                        <div>(4)</div>
-                                    </div>
-                                </li>
+                                {% for category in categories %}
+                                    {% if forloop.first %}
+                                        <li class="sidebar-categories-item pb-2 border-bottom">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <a href="{% url 'category_slug' slug=category.slug %}">
+                                                        {{ category.name }}
+                                                    </a>
+                                                </div>
+                                                <div>({{ category.total_posts }})</div>
+                                            </div>
+                                        </li>
+                                    {% else %}
+                                        <li class="sidebar-categories-item pb-2 border-bottom pt-2">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <a href="{% url 'category_slug' slug=category.slug %}">
+                                                        {{ category.name }}
+                                                    </a>
+                                                </div>
+                                                <div>({{ category.total_posts }})</div>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                    
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
